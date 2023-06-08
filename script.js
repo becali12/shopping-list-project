@@ -26,7 +26,9 @@ function addItemToLocalStorage(itemName) {
 }
 
 function getItemsFromLocalStorage() {
-    const arr = localStorage.getItem('items').split(',');
+    let arr;
+    if (localStorage.getItem('items'))
+        arr = localStorage.getItem('items').split(',');
     if (arr)
         return arr;
     else return [];
@@ -156,3 +158,4 @@ for(const button of xButtons)
     button.addEventListener('click', removeItem);
 
 checkUI();
+// localStorage.clear();
